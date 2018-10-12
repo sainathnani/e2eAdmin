@@ -1,0 +1,24 @@
+<mat-table style="width: 100%" mat-table [dataSource]="dataSource">
+<ng-container matColumnDef="name">
+  <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+  <mat-cell *matCellDef="let inquiry">{{inquiry.name}}</mat-cell>
+</ng-container>
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
+    <mat-cell *matCellDef="let inquiry">{{inquiry.email}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="mobile">
+    <mat-header-cell *matHeaderCellDef> Mobile</mat-header-cell>
+    <mat-cell *matCellDef="let inquiry">{{inquiry.mobile}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="message">
+    <mat-header-cell *matHeaderCellDef> Message</mat-header-cell>
+    <mat-cell *matCellDef="let inquiry">{{inquiry.message}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+    <mat-cell *matCellDef="let inquiry">{{inquiry.status}}</mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+</mat-table>

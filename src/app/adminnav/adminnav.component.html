@@ -1,0 +1,12 @@
+<mat-drawer-container style="width: 100%; height: 100%;">
+  <mat-drawer mode="side" opened>
+    <button mat-stroked-button routerLink="/addcategory"> Add Category</button><br>
+    <button mat-stroked-button routerLink="/inquiries"> Course</button><br>
+    <button mat-stroked-button routerLink="/inquiries"> Master Course</button><br>
+    <button mat-stroked-button routerLink="/inquiries"> New Batch</button><br>
+    <button mat-stroked-button routerLink="/inquiries"> Inquiries</button>
+  </mat-drawer>
+  <mat-drawer-content style="width: 100%; height: 100%;">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
