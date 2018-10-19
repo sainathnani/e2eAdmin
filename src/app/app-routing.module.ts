@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '',   redirectTo: '/addcategory', pathMatch: 'full' },
+  { path: '',   redirectTo: '/category', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [

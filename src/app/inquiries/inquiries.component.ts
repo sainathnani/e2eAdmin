@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {Inqueries} from '../models/inqueries';
-import { MatTable } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
 import {GetInquiriesService} from './get-inquiries.service';
 
 @Component({
@@ -12,7 +10,6 @@ export class InquiriesComponent implements OnInit {
 
    columnsToDisplay: String[] =  ['name', 'email', 'mobile', 'message', 'status'];
    dataSource = [];
-  @ViewChild(MatTable) table: MatTable<Inqueries>;
   constructor(private getInquiries: GetInquiriesService ) { }
 
   ngOnInit() {

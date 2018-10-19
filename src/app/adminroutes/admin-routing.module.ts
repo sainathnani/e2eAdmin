@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AddCategoryComponent} from '../add-category/add-category.component';
+import {CategoryComponent} from '../category/category.component';
 import {InquiriesComponent} from '../inquiries/inquiries.component';
 
 const routes: Routes = [
-  { path: 'addcategory', component: AddCategoryComponent },
+  { path: 'category', component: CategoryComponent },
   { path: 'inquiries', component: InquiriesComponent }
 ];
 
