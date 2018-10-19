@@ -35,7 +35,7 @@ export class CategoryComponent implements OnInit {
       form.append('category', this.categoryInput);
     };
 
-    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+    this.uploader.onCompleteItem = (item: any, response: any) => {
       console.log(response);
       alert(response.errorCode);
     };
@@ -79,7 +79,7 @@ export class CategoryComponent implements OnInit {
    '</div>\n' +
    '<div mat-dialog-actions>\n' +
    '  <button mat-button (click)="onNoClick()">Cancel</button>\n' +
-   '  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>\n' +
+   '  <button mat-button [mat-dialog-close]="data" >OK</button>\n' +
    '</div>'
 })
 
