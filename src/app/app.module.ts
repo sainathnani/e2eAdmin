@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule, MatTabsModule, MatButtonModule , MatFormFieldModule, MatInputModule, MatToolbarModule,
-  MatIconModule, MatMenuModule, MatDialogModule} from '@angular/material';
+  MatIconModule, MatMenuModule, MatDialogModule, MatSnackBarModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import { InquiriesComponent } from './inquiries/inquiries.component';
 import {AdminModule} from './adminroutes/admin.module';
@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { CategoryComponent, DialogComponent } from './category/category.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import {FormsModule} from '@angular/forms';
+import { CustomsnackComponent } from './customsnack/customsnack.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import {FormsModule} from '@angular/forms';
     AdminnavComponent,
     CategoryComponent,
     DialogComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    CustomsnackComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import {FormsModule} from '@angular/forms';
     MatMenuModule,
     MatDialogModule,
     MatInputModule,
+    MatSnackBarModule,
     MatFormFieldModule,
     MatSidenavModule,
     MatButtonModule,
@@ -42,7 +45,7 @@ import {FormsModule} from '@angular/forms';
     AppRoutingModule,
     HttpClientModule
   ],
-  entryComponents: [ DialogComponent],
+  entryComponents: [ DialogComponent, CustomsnackComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,4 @@
+<mat-toolbar> Inquiries</mat-toolbar>
 <mat-table style="width: 100%" mat-table [dataSource]="dataSource">
 <ng-container matColumnDef="name">
   <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
@@ -19,6 +20,21 @@
     <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
     <mat-cell *matCellDef="let inquiry">{{inquiry.status}}</mat-cell>
   </ng-container>
+
+  <ng-container matColumnDef="star">
+    <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+    <mat-cell *matCellDef="let inquiry">
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item (click)="changeStatus(inquiry)">Close</button>
+      </mat-menu>
+
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-cell>
+
+  </ng-container>
+
   <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
   <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
 </mat-table>
