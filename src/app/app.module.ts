@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule, MatTabsModule, MatButtonModule , MatFormFieldModule, MatInputModule, MatToolbarModule,
-  MatIconModule, MatMenuModule, MatDialogModule, MatSnackBarModule} from '@angular/material';
+  MatIconModule, MatMenuModule, MatDialogModule, MatSnackBarModule, MatSelectModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import { InquiriesComponent } from './inquiries/inquiries.component';
 import {AdminModule} from './adminroutes/admin.module';
@@ -13,8 +13,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { CategoryComponent, DialogComponent } from './category/category.component';
 import { FileSelectDirective } from 'ng2-file-upload';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CustomsnackComponent } from './customsnack/customsnack.component';
+import { CoursesComponent } from './courses/courses.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,11 +24,13 @@ import { CustomsnackComponent } from './customsnack/customsnack.component';
     CategoryComponent,
     DialogComponent,
     FileSelectDirective,
-    CustomsnackComponent
+    CustomsnackComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AdminModule,
     AdminRoutingModule,
@@ -40,6 +43,7 @@ import { CustomsnackComponent } from './customsnack/customsnack.component';
     MatFormFieldModule,
     MatSidenavModule,
     MatButtonModule,
+    MatSelectModule,
     MatToolbarModule,
     MatIconModule,
     AppRoutingModule,

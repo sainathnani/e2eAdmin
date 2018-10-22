@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import {GetAllCategoriesService} from './get-all-categories.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar} from '@angular/material';
 import {Categories} from '../models/categories';
 
 
@@ -14,7 +14,8 @@ import {Categories} from '../models/categories';
 export class CategoryComponent implements OnInit {
 
   constructor(private getAllCategoriesService: GetAllCategoriesService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private snackBar: MatSnackBar) {
   }
 
   catSource =  [];
@@ -37,7 +38,12 @@ export class CategoryComponent implements OnInit {
 
     this.uploader.onCompleteItem = (item: any, response: any) => {
       console.log(response);
-      alert(response.errorCode);
+      if (response === 'Success') {
+        this.snackBar.open(response, 'Done',  {
+          duration: 2000
+        });
+      }
+      this.getAllCats();
     };
 
     this.getAllCats();

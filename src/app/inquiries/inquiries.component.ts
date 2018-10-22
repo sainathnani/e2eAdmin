@@ -27,10 +27,11 @@ export class InquiriesComponent implements OnInit {
   changeStatus(element): void {
     this.getInquiries.changeStatus(element).subscribe(res => {
       if (res.status === 'Success') {
-        this.snackBar.openFromComponent(CustomsnackComponent,{
+        this.snackBar.openFromComponent(CustomsnackComponent, {
           data: res,
           duration: 1000
         });
+        this.getAllInquires();
       }
     });
   }

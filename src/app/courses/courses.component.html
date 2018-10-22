@@ -1,0 +1,100 @@
+<mat-tab-group>
+  <mat-tab label="Courses">
+      <!--
+      Table shows all courses
+      -->
+  </mat-tab>
+
+
+  <mat-tab label="Add Course">
+    <form #addCourseForm="ngForm" [formGroup]="courseData" (ngSubmit)="addCourse(addCourseForm)">
+      <!-- section 1 -->
+      <mat-toolbar> Course details </mat-toolbar>
+      <fieldset formGroupName="course">
+      <mat-form-field class="col-sm-5">
+        <input matInput placeholder="Course Name" formControlName="coursename" name="coursename" required>
+      </mat-form-field>
+
+      <mat-form-field class="col-sm-5">
+        <mat-select multiple="true" placeholder="Category type" formControlName="type" name="type" required>
+          <mat-option *ngFor="let categories of allCategories" [value]="categories.category">
+            {{categories.category}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+        <br>
+      <mat-form-field class="col-sm-10">
+        <textarea matInput placeholder="About" formControlName="about" name="about"></textarea>
+      </mat-form-field>
+      </fieldset>
+
+      <!-- section 2 -->
+      <mat-toolbar> Why should you take it ? </mat-toolbar>
+      <fieldset formGroupName="why">
+        <mat-form-field class="col-sm-5">
+          <input matInput placeholder="Why should you take it ?" formControlName="reason" name="reason">
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-5">
+          <input matInput placeholder="Benefit 1" formControlName="benefit1" name="benefit1">
+        </mat-form-field>
+
+        <br>
+        <mat-form-field class="col-sm-5">
+          <input matInput placeholder="Benefit 2" formControlName="benefit2" name="benefit2">
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-5">
+          <input matInput placeholder="Benefit 3" formControlName="benefit3" name="benefit3">
+        </mat-form-field>
+      </fieldset>
+
+
+      <!-- section 3 -->
+      <mat-toolbar> Reviews </mat-toolbar>
+      <fieldset formGroupName="reviews">
+        <mat-form-field class="col-sm-5">
+          <input matInput placeholder="Total reviews" formControlName="total_reviews" name="total_reviews">
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-5">
+          <input type="number" matInput placeholder="Aggregate Review Score" formControlName="score" name="score">
+        </mat-form-field>
+
+        <br>
+        <mat-form-field class="col-sm-5">
+          <input type="number" matInput placeholder="Course Completion Rate" formControlName="rate" name="rate">
+        </mat-form-field>
+      </fieldset>
+
+      <!-- section 4 -->
+      <mat-toolbar> Features </mat-toolbar>
+      <fieldset formGroupName="features">
+        <mat-form-field class="col-sm-5">
+          <input matInput placeholder="Instructor led session" formControlName="session" name="session" required>
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-5">
+          <input matInput placeholder="Case Study" formControlName="caseStudy" name="caseStudy">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="col-sm-5">
+          <input matInput placeholder="Assignments" formControlName="assignments" name="assignments">
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-5">
+          <input matInput placeholder="Certification" formControlName="certification" name="certification" required>
+        </mat-form-field>
+      </fieldset>
+
+      <div align="center">
+      <button type="submit" mat-raised-button color="primary" [disabled]="!addCourseForm.valid" >Submit</button>
+      </div>
+    </form>
+
+
+  </mat-tab>
+</mat-tab-group>
+
+<!-- [disabled]="!addCourseForm.valid"  -->
