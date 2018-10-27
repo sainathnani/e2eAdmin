@@ -6,11 +6,11 @@
     <mat-table style="width: 100%" mat-table [dataSource]="catSource">
       <ng-container matColumnDef="category">
         <mat-header-cell *matHeaderCellDef> Categories</mat-header-cell>
-        <mat-cell *matCellDef="let course">{{course.category}}</mat-cell>
+        <mat-cell *matCellDef="let category">{{category.category}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="createdDate">
         <mat-header-cell *matHeaderCellDef> Created Date</mat-header-cell>
-        <mat-cell *matCellDef="let course">{{course.createdDate | date: 'dd/MM/yyyy'}} </mat-cell>
+        <mat-cell *matCellDef="let category">{{category.createdDate | date: 'dd/MM/yyyy'}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="star">
