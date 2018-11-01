@@ -1,0 +1,80 @@
+<div>
+<mat-toolbar> Batches</mat-toolbar>
+</div>
+<mat-tab-group [selectedIndex]="activeTab.value" (selectedIndexChange)="activeTab.setValue($event)">
+
+<mat-tab label="Batch Details">
+
+
+<mat-table style="width: 100%" mat-table [dataSource]="batSource" >
+  <ng-container matColumnDef="courseName">
+    <mat-header-cell *matHeaderCellDef> Course Name</mat-header-cell>
+    <mat-cell *matCellDef="let batch">{{batch.selectedCourse}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="startDate">
+    <mat-header-cell *matHeaderCellDef> Start Date</mat-header-cell>
+    <mat-cell *matCellDef="let batch">{{batch.startDate | date: 'dd/MM/yyyy'}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="courseTime">
+    <mat-header-cell *matHeaderCellDef> Course Time</mat-header-cell>
+    <mat-cell *matCellDef="let batch">{{batch.courseTime}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="duration">
+    <mat-header-cell *matHeaderCellDef> Duration</mat-header-cell>
+    <mat-cell *matCellDef="let batch">{{batch.duration}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="star">
+    <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item (click)="onEdit(element)">Edit</button>
+        <button mat-menu-item (click)="onDelete(element)">Delete</button>
+      </mat-menu>
+
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-cell>
+
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayColumns;"></mat-row>
+</mat-table>
+
+</mat-tab>
+
+  <mat-tab label="Add Batch">
+
+    <form  #addBatchForm="ngForm" [formGroup]="batchData" (ngSubmit)="addBatch(addBatchForm)">
+
+      <mat-form-field class="col-sm-5">
+        <mat-select placeholder="Course" formControlName="courseId" name="courseId" required>
+          <mat-option *ngFor="let course of courses" [value]="course._id">
+            {{course.courseName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="col-sm-5">
+        <input matInput type="date"  placeholder="Start Date" formControlName="startDate" name="startDate" required>
+      </div>
+
+      <div class="col-sm-5">
+        <input type="time" placeholder="Course Time"  formControlName="courseTime" name="courseTime" required>
+      </div>
+      <mat-form-field class="col-sm-5">
+        <input matInput placeholder="Duration"  formControlName="duration" name="duration" required>
+      </mat-form-field>
+
+      <div align="center">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!addBatchForm.valid">Submit</button>
+      </div>
+
+    </form>
+  </mat-tab>
+
+</mat-tab-group>

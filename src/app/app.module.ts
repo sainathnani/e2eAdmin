@@ -16,6 +16,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CustomsnackComponent } from './customsnack/customsnack.component';
 import { CoursesComponent } from './courses/courses.component';
+import { BatchesComponent } from './batches/batches.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { CoursesComponent } from './courses/courses.component';
     DialogComponent,
     FileSelectDirective,
     CustomsnackComponent,
-    CoursesComponent
+    CoursesComponent,
+    BatchesComponent
   ],
   imports: [
     BrowserModule,
