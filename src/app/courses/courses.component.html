@@ -133,4 +133,23 @@
 
 
   </mat-tab>
+
+  <mat-tab label="Add Content">
+  <form #addContentForm =ngForm>
+    <fieldset>
+      <input type="file"  name="courseContent" ng2FileSelect [uploader]="contentUpload"  required accept=".pdf">
+    </fieldset>
+    <mat-form-field class="col-sm-5">
+      <mat-select placeholder="Course" name="course" required [(ngModel)] = "courseContentId">
+        <mat-option *ngFor="let course of courseSource" [value]="course._id">
+          {{course.courseName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div align="center">
+      <button type="submit" mat-raised-button color="primary" (click)="contentUpload.uploadAll();">Submit</button>
+    </div>
+
+  </form>
+  </mat-tab>
 </mat-tab-group>

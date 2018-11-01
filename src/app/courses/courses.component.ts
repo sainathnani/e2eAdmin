@@ -26,7 +26,9 @@ export class CoursesComponent implements OnInit {
   allCategories: Categories[] = [];
   courseSource =  [];
   courseId: String;
+  courseContentId: String;
   @ViewChild('addCourseForm') addCourseForm;
+  @ViewChild('addContentForm') addContentForm;
 
   // initialize file uploaded
   public uploader: FileUploader = new FileUploader({
@@ -34,11 +36,21 @@ export class CoursesComponent implements OnInit {
     itemAlias: 'courseImage'
   });
 
+  public contentUpload: FileUploader = new FileUploader({
+    url: 'http://localhost:3010/file/upload',
+    itemAlias: 'courseContent'
+  });
+
   // init
   ngOnInit() {
   this.initializeValiators();   // intialize object construction
   this.getAllCats();          // get all categories
-  this.getAllCourses();       // get all courses
+  this.getAllCourses();     // get all courses
+  this.initializeImageUpload();
+  this.initializeContentUpload();
+  }
+
+  initializeImageUpload(): void {
     // file upload logics
 
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
@@ -140,6 +152,24 @@ export class CoursesComponent implements OnInit {
 
     });
     this.getAllCourses();
+  }
+
+  initializeContentUpload(): void {
+    this.contentUpload.onAfterAddingFile = (file) => { file.withCredentials = false; };
+
+
+    this.contentUpload.onBuildItemForm = (item, form) => {
+      form.append('courseContentId', this.courseContentId);
+      form.append('bucketName', 'courseContent');
+    };
+    this.contentUpload.onCompleteItem = (item: any, response: any) => {
+      if (response === 'Success' || response === 'Updated Successfully') {
+        this.snackBar.open(response, 'Done',  {
+          duration: 2000
+        });
+        this.addContentForm.reset();
+      }
+    };
   }
 
 }
