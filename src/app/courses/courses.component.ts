@@ -6,7 +6,6 @@ import {FileUploader} from 'ng2-file-upload';
 import {MatSnackBar} from '@angular/material';
 import { ViewChild } from '@angular/core';
 import {GetCoursesService} from './get-courses.service';
-import {DialogComponent} from '../category/category.component';
 import {BaseResponse} from '../models/BaseResponse';
 import {CustomsnackComponent} from '../customsnack/customsnack.component';
 

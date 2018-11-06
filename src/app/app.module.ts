@@ -17,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CustomsnackComponent } from './customsnack/customsnack.component';
 import { CoursesComponent } from './courses/courses.component';
 import { BatchesComponent } from './batches/batches.component';
+import { BanneruploadComponent } from './bannerupload/bannerupload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { BatchesComponent } from './batches/batches.component';
     FileSelectDirective,
     CustomsnackComponent,
     CoursesComponent,
-    BatchesComponent
+    BatchesComponent,
+    BanneruploadComponent
   ],
   imports: [
     BrowserModule,
