@@ -66,11 +66,22 @@ export class CategoryComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
+      this.getAllCategoriesService.updateCategory(result).subscribe(res => {
+        this.snackBar.open(res.errorDesc, 'Done', {
+          duration: 2000
+        });
+      });
     });
   }
 
   onDelete(item): void {
     console.log(item);
+    this.getAllCategoriesService.deleteCategory(item.categoryId).subscribe(res => {
+      this.snackBar.open(res.errorDesc, 'Done', {
+        duration: 2000
+      });
+      this.getAllCats();
+    });
   }
 
 }
