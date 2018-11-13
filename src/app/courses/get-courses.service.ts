@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Courses} from '../models/Courses';
 import {BaseResponse} from '../models/BaseResponse';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +14,10 @@ export class GetCoursesService {
 
 
   getAllCourses(): Observable<Courses[]> {
-    return this.http.get<Courses[]>('http://localhost:3010/courseroute/courses');
+    return this.http.get<Courses[]>(environment.constructUrl(environment.getAllCourses));
   }
 
   deleteCourse(courseId): Observable<BaseResponse> {
-    return this.http.delete<BaseResponse>('http://localhost:3010/courseroute/course/' + courseId);
+    return this.http.delete<BaseResponse>(environment.constructUrl(environment.getCourseById) + courseId);
   }
 }

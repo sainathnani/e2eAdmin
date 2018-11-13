@@ -3,6 +3,7 @@ import {FileUploader} from 'ng2-file-upload';
 import {MatSnackBar} from '@angular/material';
 import {GetbannersService} from './getbanners.service';
 import {BannerDetails} from '../models/BannerDetails';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-bannerupload',
@@ -17,7 +18,7 @@ export class BanneruploadComponent implements OnInit {
   banSource: BannerDetails[] = [];
   displayColumns: String[] = ['bannerImg', 'filename', 'star'];
   public bannerUpload: FileUploader = new FileUploader({
-    url: 'http://localhost:3010/file/upload',
+    url: environment.constructUrl(environment.fileUpload),
     itemAlias: 'courseContent'
   });
 

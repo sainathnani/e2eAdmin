@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Inqueries} from '../models/inqueries';
 import {BaseResponse} from '../models/BaseResponse';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class GetInquiriesService {
   constructor(private http: HttpClient) { }
 
   getInquiries(): Observable<Inqueries[]> {
-    return this.http.get<Inqueries[]>('http://localhost:3010/contactusroutes/user/getcontacts');
+    return this.http.get<Inqueries[]>(environment.constructUrl(environment.getInquiries));
   }
 
   changeStatus(contact): Observable<BaseResponse> {
-     return this.http.post<BaseResponse>('http://localhost:3010/contactusroutes/user/change/status', contact);
+     return this.http.post<BaseResponse>(environment.constructUrl(environment.changeStatus), contact);
   }
 
 }

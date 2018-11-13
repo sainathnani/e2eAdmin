@@ -8,6 +8,7 @@ import { ViewChild } from '@angular/core';
 import {GetCoursesService} from './get-courses.service';
 import {BaseResponse} from '../models/BaseResponse';
 import {CustomsnackComponent} from '../customsnack/customsnack.component';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-courses',
@@ -31,12 +32,12 @@ export class CoursesComponent implements OnInit {
 
   // initialize file uploaded
   public uploader: FileUploader = new FileUploader({
-    url: 'http://localhost:3010/courseroute/course/addCourse',
+    url: environment.constructUrl(environment.addCourse),
     itemAlias: 'courseImage'
   });
 
   public contentUpload: FileUploader = new FileUploader({
-    url: 'http://localhost:3010/file/upload',
+    url: environment.constructUrl(environment.fileUpload),
     itemAlias: 'courseContent'
   });
 

@@ -3,7 +3,7 @@ import { FileUploader } from 'ng2-file-upload';
 import {GetAllCategoriesService} from './get-all-categories.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar} from '@angular/material';
 import {Categories} from '../models/categories';
-
+import {environment} from '../../environments/environment';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class CategoryComponent implements OnInit {
 
   // -- File uploader component--
   public uploader: FileUploader = new FileUploader({
-    url: 'http://localhost:3010/categoryroutes/create/category',
+    url: environment.constructUrl(environment.createCategory),
     itemAlias: 'categoryImage'
   });
 

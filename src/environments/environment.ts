@@ -3,7 +3,33 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:3010/',
+  getCategories: 'categoryroutes/categories',
+  updateCategory: 'categoryroutes/updateCategory',
+  deleteCategory: 'categoryroutes/deleteCategory/',
+  createCategory: 'categoryroutes/create/category',
+  categoryImage: 'file/',
+  fssource: '/fs',
+  bannersource: '/banners',
+  courseContent: '/courseContent',
+  contactus: 'contactusroutes/user/contactus',
+  getCourseById: 'courseroute/course/',
+  addCourse: 'courseroute/course/addCourse',
+  getAllCourses: 'courseroute/courses',
+  getAllBanners: 'file/get/allfiles',
+  getCourseContent: 'courseroute/courseContent/',
+  getAllBatches: 'batch/get/batches',
+  getBatchByCourse: 'batch/',
+  addBatch : 'batch/add/batch',
+  deleteBatch: 'batch/delete/batches/',
+  deleteBanner : 'file/delete/',
+  fileUpload: 'file/upload',
+  getInquiries : 'contactusroutes/user/getcontacts',
+  changeStatus: 'contactusroutes/user/change/status',
+  constructUrl : function(input) {
+    return this.apiUrl + input;
+  }
 };
 
 /*
