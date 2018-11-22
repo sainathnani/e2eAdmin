@@ -87,9 +87,7 @@ export class CoursesComponent implements OnInit {
         Validators.required,
         Validators.minLength(4),
       ]),
-      'aboutCourse': new FormControl('', [
-        Validators.maxLength(255)
-      ]),
+      'aboutCourse': new FormControl(''),
       'type': new FormControl('', [
         Validators.required
       ]),
