@@ -26,6 +26,11 @@
     <mat-cell *matCellDef="let batch">{{batch.duration}} </mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="faculty">
+    <mat-header-cell *matHeaderCellDef> Faculty (Exp)</mat-header-cell>
+    <mat-cell *matCellDef="let batch">{{batch.faculty}} </mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="star">
     <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
     <mat-cell *matCellDef="let element">
@@ -68,6 +73,10 @@
       </div>
       <mat-form-field class="col-sm-5">
         <input matInput placeholder="Duration"  formControlName="duration" name="duration" required>
+      </mat-form-field>
+
+      <mat-form-field class="col-sm-5">
+        <input matInput placeholder="Faculty"  formControlName="faculty" name="faculty" required>
       </mat-form-field>
 
       <div align="center">

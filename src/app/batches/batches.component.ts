@@ -17,7 +17,7 @@ export class BatchesComponent implements OnInit {
               private batchService: BatchService,
               private matSnack: MatSnackBar) { }
 
-  displayColumns = ['courseName', 'startDate', 'duration', 'courseTime' , 'star'];
+  displayColumns = ['courseName', 'startDate', 'duration', 'courseTime' , 'faculty' , 'star'];
   batchData: FormGroup;
   batSource: Batches[] = [];
   courses: Courses[] = [];
@@ -44,6 +44,9 @@ export class BatchesComponent implements OnInit {
         Validators.required
       ]),
       'courseTime': new FormControl('', [
+        Validators.required
+      ]),
+      'faculty': new FormControl('', [
         Validators.required
       ])
   });

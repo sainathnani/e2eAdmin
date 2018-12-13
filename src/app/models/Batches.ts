@@ -4,4 +4,5 @@ export class Batches {
   startDate: Date;
   courseTime: String;
   duration: Number;
+  faculty: String;
 }
