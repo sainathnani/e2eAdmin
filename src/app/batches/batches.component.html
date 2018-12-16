@@ -18,7 +18,7 @@
 
   <ng-container matColumnDef="courseTime">
     <mat-header-cell *matHeaderCellDef> Course Time</mat-header-cell>
-    <mat-cell *matCellDef="let batch">{{batch.courseTime}} </mat-cell>
+    <mat-cell *matCellDef="let batch">{{batch.startDate | date: 'h:mm a'}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="duration">
@@ -65,12 +65,10 @@
       </mat-form-field>
 
       <div class="col-sm-5">
-        <input matInput type="date"  placeholder="Start Date" formControlName="startDate" name="startDate" required>
+        <input matInput type="datetime-local"  placeholder="Start Date" formControlName="startDate" name="startDate" required>
       </div>
 
-      <div class="col-sm-5">
-        <input type="time" placeholder="Course Time"  formControlName="courseTime" name="courseTime" required>
-      </div>
+
       <mat-form-field class="col-sm-5">
         <input matInput placeholder="Duration"  formControlName="duration" name="duration" required>
       </mat-form-field>

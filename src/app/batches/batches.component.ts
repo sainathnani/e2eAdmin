@@ -43,9 +43,6 @@ export class BatchesComponent implements OnInit {
       'startDate': new FormControl('', [
         Validators.required
       ]),
-      'courseTime': new FormControl('', [
-        Validators.required
-      ]),
       'faculty': new FormControl('', [
         Validators.required
       ])
